@@ -37,6 +37,25 @@ angular.module('crudApp').factory('UserService',
                 return $localStorage.users;
             }
 
+            
+            function getUserAccounts(id) {
+                console.log('Fetching User with id :'+id);
+                var deferred = $q.defer();
+                $http.get(urls.Account_SERVICE_API + id)
+                    .then(
+                        function (response) {
+                            console.log('Fetched successfully User with id :'+id);
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                            console.error('Error while loading user with id :'+id);
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
+            
+            
             function getUser(id) {
                 console.log('Fetching User with id :'+id);
                 var deferred = $q.defer();

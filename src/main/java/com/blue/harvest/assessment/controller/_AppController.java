@@ -11,9 +11,13 @@ public class _AppController {
 	@RequestMapping("/")
 	String home(ModelMap modal) {
 		modal.addAttribute("title","Blue Harvest");
-		return "index";
+		return "customer";
 	}
 
+	
+ 
+
+	
 	@RequestMapping("/partials/{page}")
 	String partialHandler(@PathVariable("page") final String page) {
 		return page;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').factory('UserService',
+angular.module('crudAppAccount').factory('AccountService',
     ['$localStorage', '$http', '$q', 'urls',
         function ($localStorage, $http, $q, urls) {
 
@@ -8,17 +8,15 @@ angular.module('crudApp').factory('UserService',
                 loadAllUsers: loadAllUsers,
                 getAllUsers: getAllUsers,
                 getUser: getUser,
-                createUser: createUser,
-                updateUser: updateUser,
-                removeUser: removeUser
+                createUser: createUser
             };
 
             return factory;
 
-            function loadAllUsers() {
+            function loadAllUsers(id) {
                 console.log('Fetching all users');
                 var deferred = $q.defer();
-                $http.get(urls.USER_SERVICE_API)
+                $http.get(urls.USER_SERVICE_API+id)
                     .then(
                         function (response) {
                             console.log('Fetched successfully all users');
@@ -38,10 +36,10 @@ angular.module('crudApp').factory('UserService',
             }
 
             
-            function getUserAccounts(id) {
+            function getUser(id) {
                 console.log('Fetching User with id :'+id);
                 var deferred = $q.defer();
-                $http.get(urls.Account_SERVICE_API + id)
+                $http.get(urls.USER_SERVICE_API + id)
                     .then(
                         function (response) {
                             console.log('Fetched successfully User with id :'+id);
@@ -90,39 +88,9 @@ angular.module('crudApp').factory('UserService',
                 return deferred.promise;
             }
 
-            function updateUser(user, id) {
-                console.log('Updating User with id '+id);
-                var deferred = $q.defer();
-                $http.put(urls.USER_SERVICE_API + id, user)
-                    .then(
-                        function (response) {
-                            loadAllUsers();
-                            deferred.resolve(response.data);
-                        },
-                        function (errResponse) {
-                            console.error('Error while updating User with id :'+id);
-                            deferred.reject(errResponse);
-                        }
-                    );
-                return deferred.promise;
-            }
+ 
 
-            function removeUser(id) {
-                console.log('Removing User with id '+id);
-                var deferred = $q.defer();
-                $http.delete(urls.USER_SERVICE_API + id)
-                    .then(
-                        function (response) {
-                            loadAllUsers();
-                            deferred.resolve(response.data);
-                        },
-                        function (errResponse) {
-                            console.error('Error while removing User with id :'+id);
-                            deferred.reject(errResponse);
-                        }
-                    );
-                return deferred.promise;
-            }
+   
 
         }
     ]);

@@ -15,11 +15,6 @@ public interface AccountService {
 
 	Account saveAccount(AccountDTO account);
 
-//	void updateAccount(Account account);
-
-	void deleteAccountById(Long id);
-
-	void deleteAllAccount();
 
 	List<Account> findAllAccount();
 

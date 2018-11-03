@@ -62,7 +62,7 @@
 		            </tr>
 		            </thead>
 		            <tbody>
-		            <tr ng-repeat="u in ctrl.getAllUsers()">
+		            <tr ng-repeat="u in ctrl.getUserAccounts(u.id)">
 		                <td>{{u.id}}</td>
 		                <td>{{u.name}}</td>
 		                <td>{{u.age}}</td>

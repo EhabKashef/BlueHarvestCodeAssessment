@@ -1,8 +1,8 @@
-var app = angular.module('crudApp',['ui.router','ngStorage']);
+var app = angular.module('crudAppAccount',['ui.router','ngStorage']);
 
 app.constant('urls', {
     BASE: 'http://localhost:8080/BlueHarvestAssessment',
-    USER_SERVICE_API : 'http://localhost:8080/BlueHarvestAssessment/api/user/'
+    USER_SERVICE_API : 'http://localhost:8080/BlueHarvestAssessment/api/accounts/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -11,14 +11,14 @@ app.config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'partials/list',
-                controller:'UserController',
-                controllerAs:'ctrl',
+                templateUrl: 'partials/accountList',
+                controller:'AccountController',
+                controllerAs:'actrl',
                 resolve: {
-                    users: function ($q, UserService) {
+                    users: function ($q, AccountService) {
                         console.log('Load all users');
                         var deferred = $q.defer();
-                        UserService.loadAllUsers().then(deferred.resolve, deferred.resolve);
+                        AccountService.loadAllUsers().then(deferred.resolve, deferred.resolve);
                         return deferred.promise;
                     }
                 }

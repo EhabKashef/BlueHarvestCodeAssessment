@@ -23,29 +23,29 @@ public class CustomerEntityManagerCommandLineRunner implements CommandLineRunner
 
 		 Customer ehab = new Customer();
 		 ehab.setName("Ehab");
-		 ehab.setAge(29);
-		 ehab.setSalary(3000);
+		 ehab.setSurname("Ehab Surname"); 
+		 ehab.setBalance(0); 
 		 userService.saveUser(ehab);
 
 		 
 		 Customer luran = new Customer();
 		 luran.setName("Luran");
-		 luran.setAge(23);
-		 luran.setSalary(3500);
+		 luran.setBalance(0); 
+		 luran.setSurname("Luran Surname"); 
 		 userService.saveUser(luran);
 //		 
 //		 
 		 Customer blue = new Customer();
 		 blue.setName("Blue");
-		 blue.setAge(22);
-		 blue.setSalary(1000);
+		 blue.setBalance(0); 
+		 blue.setSurname("Blue Surname"); 
 		 userService.saveUser(blue);
 		 
 		 
 		 Customer harvest = new Customer();
 		 harvest.setName("Harvest");
-		 harvest.setAge(30);
-		 harvest.setSalary(4000);
+		 harvest.setSurname("Harvest Surname"); 
+		 harvest.setBalance(0); 
 		 userService.saveUser(harvest);
 		 
 		 

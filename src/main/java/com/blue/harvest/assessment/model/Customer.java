@@ -31,10 +31,10 @@ public class Customer implements Serializable{
 	private String name;
 
 	@Column(name="AGE", nullable=false)
-	private Integer age;
+	private String surname;
 
-	@Column(name="SALARY", nullable=false)
-	private double salary;
+	@Column(name="BALANCE", nullable=false)
+	private double balance;
 
 	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "user")
@@ -68,32 +68,35 @@ public class Customer implements Serializable{
 		this.name = name;
 	}
 
-	public Integer getAge() {
-		return age;
+	 
+
+	public double getBalance() {
+		return balance;
 	}
 
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
 
-	public double getSalary() {
-		return salary;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setSalary(double salary) {
-		this.salary = salary;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((age == null) ? 0 : age.hashCode());
+		result = prime * result + ((accounts == null) ? 0 : accounts.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(balance);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(salary);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		return result;
 	}
 
@@ -106,10 +109,12 @@ public class Customer implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		if (age == null) {
-			if (other.age != null)
+		if (accounts == null) {
+			if (other.accounts != null)
 				return false;
-		} else if (!age.equals(other.age))
+		} else if (!accounts.equals(other.accounts))
+			return false;
+		if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -121,18 +126,20 @@ public class Customer implements Serializable{
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (Double.doubleToLongBits(salary) != Double.doubleToLongBits(other.salary))
+		if (surname == null) {
+			if (other.surname != null)
+				return false;
+		} else if (!surname.equals(other.surname))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "]";
+		return "Customer [id=" + id + ", name=" + name + ", surname=" + surname + ", balance=" + balance + ", accounts="
+				+ accounts + "]";
 	}
-
-	 
-
+ 
 	 
 
 

@@ -5,7 +5,9 @@ import java.util.List;
 import com.blue.harvest.assessment.dto.AccountDTO;
 import com.blue.harvest.assessment.model.Account;
 import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.Transaction;
 import com.blue.harvest.assessment.repositories.AccountRepository;
+import com.blue.harvest.assessment.repositories.TransactionRepository;
 import com.blue.harvest.assessment.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,24 +24,23 @@ public class AccountServiceImpl implements AccountService{
 	private AccountRepository accountRepository;
 	
 	@Autowired
-	private UserRepository userRepository;
+	private TransactionService transactionService;
+	
+	
+	
+ 
 
+	
+	@Autowired
+	private TransactionRepository transactionRepository;
+	
+	
 	@Override
 	public Account findById(Long id) {
 		return accountRepository.findOne(id);
 	}
 
-	@Override
-	public void deleteAccountById(Long id) {
-		accountRepository.delete(id);
-		
-	}
 
-	@Override
-	public void deleteAllAccount() {
-		accountRepository.deleteAll();
-		
-	}
 
 	@Override
 	public List<Account> findAllAccount() {
@@ -59,6 +60,17 @@ public class AccountServiceImpl implements AccountService{
 		user.setId(account.getCustomerID());
 		account1.setUser(user);
 		accountRepository.save(account1);
+		
+		if(account.getInitialCredit()>0) {
+			
+			Transaction transaction = new Transaction();
+			transaction.setAccount(account1);
+			transaction.setAmount(account.getInitialCredit());
+			transactionService.saveTransaction(transaction);
+			
+		}
+		
+		
 		return account1;
 		
 	}

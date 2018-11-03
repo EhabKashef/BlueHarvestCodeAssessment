@@ -31,7 +31,7 @@ public class AccountController {
 	@Autowired
 	AccountService accountService; //Service which will do all data retrieval/manipulation work
 
-	// -------------------Retrieve All Users---------------------------------------------
+	// -------------------Retrieve All Accounts---------------------------------------------
 
 	@RequestMapping(value = "/account/", method = RequestMethod.GET)
 	public ResponseEntity<List<Account>> listAllAccounts() {
