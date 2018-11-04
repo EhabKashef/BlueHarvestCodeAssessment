@@ -10,7 +10,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         $stateProvider
             .state('home', {
-                url: '/',
+                url: '/getaccounts/1',
                 templateUrl: 'partials/accountList',
                 controller:'AccountController',
                 controllerAs:'actrl',
@@ -18,7 +18,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     users: function ($q, AccountService) {
                         console.log('Load all users');
                         var deferred = $q.defer();
-                        AccountService.loadAllUsers().then(deferred.resolve, deferred.resolve);
+                        AccountService.loadAllAccounts().then(deferred.resolve, deferred.resolve);
                         return deferred.promise;
                     }
                 }

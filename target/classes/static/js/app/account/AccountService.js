@@ -5,15 +5,15 @@ angular.module('crudAppAccount').factory('AccountService',
         function ($localStorage, $http, $q, urls) {
 
             var factory = {
-                loadAllUsers: loadAllUsers,
-                getAllUsers: getAllUsers,
+                loadAllAccounts: loadAllAccounts,
+                getAllAccounts: getAllAccounts,
                 getUser: getUser,
                 createUser: createUser
             };
 
             return factory;
 
-            function loadAllUsers(id) {
+            function loadAllAccounts() {
                 console.log('Fetching all users');
                 var deferred = $q.defer();
                 $http.get(urls.USER_SERVICE_API+id)
@@ -31,7 +31,7 @@ angular.module('crudAppAccount').factory('AccountService',
                 return deferred.promise;
             }
 
-            function getAllUsers(){
+            function getAllAccounts(){
                 return $localStorage.users;
             }
 
@@ -77,7 +77,7 @@ angular.module('crudAppAccount').factory('AccountService',
                 $http.post(urls.USER_SERVICE_API, user)
                     .then(
                         function (response) {
-                            loadAllUsers();
+                            loadAllAccounts();
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {

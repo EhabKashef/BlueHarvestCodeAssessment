@@ -14,6 +14,7 @@ angular.module('crudApp').controller('UserController',
         self.removeUser = removeUser;
         self.editUser = editUser;
         self.reset = reset;
+        self.getUserAccounts=getUserAccounts;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -72,7 +73,26 @@ angular.module('crudApp').controller('UserController',
                     }
                 );
         }
-
+        
+        
+        function getUserAccounts( id){
+            console.log('About to update user');
+            UserService.getUserAccounts( id)
+                .then(
+                    function (response){
+                        console.log('User updated successfully');
+                        self.successMessage='User updated successfully';
+                        self.errorMessage='';
+                        self.done = true;
+                        $scope.myForm.$setPristine();
+                    },
+                    function(errResponse){
+                        console.error('Error while updating User');
+                        self.errorMessage='Error while updating User '+errResponse.data;
+                        self.successMessage='';
+                    }
+                );
+        }
 
         function removeUser(id){
             console.log('About to remove User with id '+id);

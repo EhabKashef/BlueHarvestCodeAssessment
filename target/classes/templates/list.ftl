@@ -21,19 +21,12 @@
 	                    <div class="form-group col-md-12">
 	                        <label class="col-md-2 control-lable" for="age">Age</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.age" id="age" class="form-control input-sm" placeholder="Enter your Age." required ng-pattern="ctrl.onlyIntegers"/>
+	                            <input type="text" ng-model="ctrl.user.surname" id="surname" class="form-control input-sm" placeholder="Enter your surname." required ng-minlength="3""/>
 	                        </div>
 	                    </div>
 	                </div>
 	
-	                <div class="row">
-	                    <div class="form-group col-md-12">
-	                        <label class="col-md-2 control-lable" for="salary">Salary</label>
-	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.salary" id="salary" class="form-control input-sm" placeholder="Enter your Salary." required ng-pattern="ctrl.onlyNumbers"/>
-	                        </div>
-	                    </div>
-	                </div>
+	              
 
 	                <div class="row">
 	                    <div class="form-actions floatRight">
@@ -55,20 +48,22 @@
 		            <tr>
 		                <th>ID</th>
 		                <th>NAME</th>
-		                <th>AGE</th>
-		                <th>SALARY</th>
+		                <th>surname</th>
+		                <th>balance</th>
+		                <th width="100"></th>
 		                <th width="100"></th>
 		                <th width="100"></th>
 		            </tr>
 		            </thead>
 		            <tbody>
-		            <tr ng-repeat="u in ctrl.getUserAccounts(u.id)">
+		            <tr ng-repeat="u in ctrl.getAllUsers(u.id)">
 		                <td>{{u.id}}</td>
 		                <td>{{u.name}}</td>
-		                <td>{{u.age}}</td>
-		                <td>{{u.salary}}</td>
+		                <td>{{u.surname}}</td>
+		                <td>{{u.balance}}</td>
 		                <td><button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Edit</button></td>
 		                <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Remove</button></td>
+		                <td><button type="button" ng-click="ctrl.getUserAccounts(u.id)" class="btn btn-danger custom-width">Accounts</button></td>
 		            </tr>
 		            </tbody>
 		        </table>		

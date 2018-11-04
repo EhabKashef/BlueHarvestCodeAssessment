@@ -22,5 +22,13 @@ public class _AppController {
 	String partialHandler(@PathVariable("page") final String page) {
 		return page;
 	}
+	
+	@RequestMapping("/getaccounts/{id}")
+	String accounts(ModelMap modal,@PathVariable("id") final String id) {
+		modal.addAttribute("title","Blue Harvest");
+		modal.addAttribute("id",id);
+		return "accounts";
+	}
+	
 
 }

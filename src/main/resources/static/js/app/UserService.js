@@ -10,7 +10,8 @@ angular.module('crudApp').factory('UserService',
                 getUser: getUser,
                 createUser: createUser,
                 updateUser: updateUser,
-                removeUser: removeUser
+                removeUser: removeUser,
+                getUserAccounts:getUserAccounts
             };
 
             return factory;
@@ -32,6 +33,10 @@ angular.module('crudApp').factory('UserService',
                     );
                 return deferred.promise;
             }
+            
+            
+            
+            
 
             function getAllUsers(){
                 return $localStorage.users;
@@ -40,11 +45,13 @@ angular.module('crudApp').factory('UserService',
             
             function getUserAccounts(id) {
                 console.log('Fetching User with id :'+id);
+                 
+                window.location.replace(urls.BASE + "/getaccounts/"+id);
                 var deferred = $q.defer();
-                $http.get(urls.Account_SERVICE_API + id)
+                $http.get(urls.BASE + "/getaccounts/"+id)
                     .then(
                         function (response) {
-                            console.log('Fetched successfully User with id :'+id);
+                            console.log('Fetched successfully User Accounts with id :'+id);
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {

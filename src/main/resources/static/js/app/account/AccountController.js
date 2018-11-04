@@ -8,11 +8,9 @@ angular.module('crudApp').controller('AccountController',
         self.users=[];
 
         self.submit = submit;
-        self.getAllUsers = getAllUsers;
+        self.getAllAccounts = getAllAccounts;
         self.createUser = createUser;
-        self.updateUser = updateUser;
-        self.removeUser = removeUser;
-        self.editUser = editUser;
+ 
         self.reset = reset;
 
         self.successMessage = '';
@@ -54,56 +52,17 @@ angular.module('crudApp').controller('AccountController',
         }
 
 
-        function updateUser(user, id){
-            console.log('About to update user');
-            UserService.updateUser(user, id)
-                .then(
-                    function (response){
-                        console.log('User updated successfully');
-                        self.successMessage='User updated successfully';
-                        self.errorMessage='';
-                        self.done = true;
-                        $scope.myForm.$setPristine();
-                    },
-                    function(errResponse){
-                        console.error('Error while updating User');
-                        self.errorMessage='Error while updating User '+errResponse.data;
-                        self.successMessage='';
-                    }
-                );
+  
+
+
+   
+
+
+        function getAllAccounts(id){
+            return AccountService.getAllAccounts(id);
         }
 
-
-        function removeUser(id){
-            console.log('About to remove User with id '+id);
-            UserService.removeUser(id)
-                .then(
-                    function(){
-                        console.log('User '+id + ' removed successfully');
-                    },
-                    function(errResponse){
-                        console.error('Error while removing user '+id +', Error :'+errResponse.data);
-                    }
-                );
-        }
-
-
-        function getAllUsers(id){
-            return AccountService.getAllUsers(id);
-        }
-
-        function editUser(id) {
-            self.successMessage='';
-            self.errorMessage='';
-            UserService.getUser(id).then(
-                function (user) {
-                    self.user = user;
-                },
-                function (errResponse) {
-                    console.error('Error while removing user ' + id + ', Error :' + errResponse.data);
-                }
-            );
-        }
+ 
         function reset(){
             self.successMessage='';
             self.errorMessage='';
