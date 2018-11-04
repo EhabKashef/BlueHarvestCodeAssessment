@@ -19,7 +19,7 @@
 
 	                <div class="row">
 	                    <div class="form-group col-md-12">
-	                        <label class="col-md-2 control-lable" for="age">Age</label>
+	                        <label class="col-md-2 control-lable" for="age">Surname</label>
 	                        <div class="col-md-7">
 	                            <input type="text" ng-model="ctrl.user.surname" id="surname" class="form-control input-sm" placeholder="Enter your surname." required ng-minlength="3""/>
 	                        </div>
@@ -50,7 +50,7 @@
 		                <th>NAME</th>
 		                <th>surname</th>
 		                <th>balance</th>
-		                <th width="100"></th>
+		            
 		                <th width="100"></th>
 		                <th width="100"></th>
 		            </tr>
@@ -61,9 +61,9 @@
 		                <td>{{u.name}}</td>
 		                <td>{{u.surname}}</td>
 		                <td>{{u.balance}}</td>
-		                <td><button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Edit</button></td>
-		                <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Remove</button></td>
-		                <td><button type="button" ng-click="ctrl.getUserAccounts(u.id)" class="btn btn-danger custom-width">Accounts</button></td>
+		                <td><button type="button" ng-click="ctrl.getUserAccounts(u.id)" class="btn btn-success custom-width">Accounts</button></td>
+ 		                <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Remove</button></td>
+		                
 		            </tr>
 		            </tbody>
 		        </table>		

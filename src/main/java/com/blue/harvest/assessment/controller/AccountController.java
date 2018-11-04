@@ -93,7 +93,7 @@ public class AccountController {
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/api/account/{id}").buildAndExpand(newAccount.getId()).toUri());
-		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
+		return new ResponseEntity<String>( HttpStatus.OK);
 	}
 
 	
