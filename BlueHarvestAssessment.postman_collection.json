@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "ab6ce486-e502-47e6-a9c5-b1aed01da952",
+		"name": "BlueHarvestAssessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8"
+					}
+				],
+				"body": {},
+				"url": "http://localhost:8080/BlueHarvestAssessment/api/user/"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"qwew11\",\"surname\":\"12\",\"balance\":\"123\"}"
+				},
+				"url": "http://localhost:8080/BlueHarvestAssessment/api/user/"
+			},
+			"response": []
+		},
+		{
+			"name": "Account",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"initialCredit\":\"1\",\"user\":{\"id\":\"3\"}}"
+				},
+				"url": "http://localhost:8080/BlueHarvestAssessment/api/account/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Account By Customer Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"initialCredit\":\"1\",\"user\":{\"id\":\"3\"}}"
+				},
+				"url": "http://localhost:8080/BlueHarvestAssessment/api/accounts/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": false
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"initialCredit\":\"10\",\"customerID\":\"2\"}"
+				},
+				"url": "http://localhost:8080/BlueHarvestAssessment/api/account/"
+			},
+			"response": []
+		},
+		{
+			"name": "Transactions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"initialCredit\":\"1\",\"user\":{\"id\":\"3\"}}"
+				},
+				"url": "http://localhost:8080/BlueHarvestAssessment/api/transaction/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Transactions By Account Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"initialCredit\":\"1\",\"user\":{\"id\":\"3\"}}"
+				},
+				"url": "http://localhost:8080/BlueHarvestAssessment/api/transactions/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": false
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"amount\":\"-2\",\"account\":{\"id\":\"1\"}}"
+				},
+				"url": "http://localhost:8080/BlueHarvestAssessment/api/transaction/"
+			},
+			"response": []
+		}
+	]
+}
