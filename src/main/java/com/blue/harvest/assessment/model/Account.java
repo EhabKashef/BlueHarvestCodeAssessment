@@ -41,7 +41,7 @@ public class Account implements Serializable{
 	@JsonBackReference
 	 @ManyToOne()
 	 @JoinColumn(name = "customerID")  
-	private Customer user ;
+	private User user ;
 
 	
 	
@@ -59,11 +59,11 @@ public class Account implements Serializable{
 
  
 
-	public Customer getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(Customer user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

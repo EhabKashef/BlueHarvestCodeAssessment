@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.blue.harvest.assessment.model.Account;
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {

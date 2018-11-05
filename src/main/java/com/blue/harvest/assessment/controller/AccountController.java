@@ -17,7 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.blue.harvest.assessment.dto.AccountDTO;
 import com.blue.harvest.assessment.model.Account;
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 import com.blue.harvest.assessment.service.AccountService;
 import com.blue.harvest.assessment.service.UserService;
 import com.blue.harvest.assessment.util.CustomErrorType;
@@ -65,8 +65,7 @@ public class AccountController {
 		logger.info("Fetching Account with id {}", id);
 		List<Account> accounts = accountService.findByUserId(id);
 				
-	//	List<Customer> users = userService.findAllUsers();
-		if (accounts.isEmpty()) {
+ 		if (accounts.isEmpty()) {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 			// You many decide to return HttpStatus.NOT_FOUND<List<Customer>>
 		}

@@ -3,23 +3,23 @@ package com.blue.harvest.assessment.service;
 
 import java.util.List;
 
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 
 public interface UserService {
 	
-	Customer findById(Long id);
+	User findById(Long id);
 
-	Customer findByName(String name);
+	User findByName(String name);
 
-	void saveUser(Customer user);
+	void saveUser(User user);
 
-	void updateUser(Customer user);
+	void updateUser(User user);
 
 	void deleteUserById(Long id);
 
 	void deleteAllUsers();
 
-	List<Customer> findAllUsers();
+	List<User> findAllUsers();
 
-	boolean isUserExist(Customer user);
+	boolean isUserExist(User user);
 }

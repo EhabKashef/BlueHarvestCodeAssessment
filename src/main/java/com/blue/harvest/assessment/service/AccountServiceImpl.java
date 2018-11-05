@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.blue.harvest.assessment.dto.AccountDTO;
 import com.blue.harvest.assessment.model.Account;
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 import com.blue.harvest.assessment.model.Transaction;
 import com.blue.harvest.assessment.repositories.AccountRepository;
 import com.blue.harvest.assessment.repositories.TransactionRepository;
@@ -56,7 +56,7 @@ public class AccountServiceImpl implements AccountService{
 		
 		Account account1 = new Account();
 		account1.setInitialCredit(account.getInitialCredit());
-		Customer user = new Customer();
+		User user = new User();
 		user.setId(account.getCustomerID());
 		account1.setUser(user);
 		accountRepository.save(account1);

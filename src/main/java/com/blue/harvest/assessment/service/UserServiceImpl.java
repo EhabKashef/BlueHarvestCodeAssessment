@@ -2,7 +2,7 @@ package com.blue.harvest.assessment.service;
 
 import java.util.List;
 
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 import com.blue.harvest.assessment.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +18,19 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserRepository userRepository;
 
-	public Customer findById(Long id) {
+	public User findById(Long id) {
 		return userRepository.findOne(id);
 	}
 
-	public Customer findByName(String name) {
+	public User findByName(String name) {
 		return userRepository.findByName(name);
 	}
 
-	public void saveUser(Customer user) {
+	public void saveUser(User user) {
 		userRepository.save(user);
 	}
 
-	public void updateUser(Customer user){
+	public void updateUser(User user){
 		saveUser(user);
 	}
 
@@ -42,11 +42,11 @@ public class UserServiceImpl implements UserService{
 		userRepository.deleteAll();
 	}
 
-	public List<Customer> findAllUsers(){
-		return (List<Customer>) userRepository.findAll();
+	public List<User> findAllUsers(){
+		return (List<User>) userRepository.findAll();
 	}
 
-	public boolean isUserExist(Customer user) {
+	public boolean isUserExist(User user) {
 		return findByName(user.getName()) != null;
 	}
 

@@ -4,11 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<Customer, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    Customer findByName(String name);
+    User findByName(String name);
 
 }

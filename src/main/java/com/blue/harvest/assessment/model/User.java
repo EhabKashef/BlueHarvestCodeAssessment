@@ -11,14 +11,14 @@ import java.util.List;
 
 @Entity
 @Table(name="USER")
-public class Customer implements Serializable{
+public class User implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Customer() {
+	public User() {
 		super();
 	}
 
@@ -30,7 +30,7 @@ public class Customer implements Serializable{
 	@Column(name="NAME", nullable=false)
 	private String name;
 
-	@Column(name="AGE", nullable=false)
+	@Column(name="SURNAME", nullable=false)
 	private String surname;
 
 	@Column(name="BALANCE", nullable=false)
@@ -108,7 +108,7 @@ public class Customer implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Customer other = (Customer) obj;
+		User other = (User) obj;
 		if (accounts == null) {
 			if (other.accounts != null)
 				return false;

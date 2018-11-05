@@ -3,7 +3,7 @@ package com.blue.harvest.assessment.service;
 import java.util.List;
 
 import com.blue.harvest.assessment.model.Account;
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 import com.blue.harvest.assessment.model.Transaction;
 import com.blue.harvest.assessment.repositories.AccountRepository;
 import com.blue.harvest.assessment.repositories.TransactionRepository;
@@ -40,7 +40,7 @@ public class TransactionServiceImpl implements TransactionService{
 		
 		
 	Account account=	accountService.findById(transaction.getAccount().getId());
-	Customer user = 	 userService.findById(account.getUser().getId());
+	User user = 	 userService.findById(account.getUser().getId());
 	
 	
 	user.setId(user.getId());

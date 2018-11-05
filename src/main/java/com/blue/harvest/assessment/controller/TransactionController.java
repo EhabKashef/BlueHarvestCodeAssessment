@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.blue.harvest.assessment.model.Transaction;
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 import com.blue.harvest.assessment.service.TransactionService;
 import com.blue.harvest.assessment.service.UserService;
 import com.blue.harvest.assessment.util.CustomErrorType;

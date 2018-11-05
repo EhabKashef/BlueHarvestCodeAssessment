@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.blue.harvest.assessment.model.Customer;
+import com.blue.harvest.assessment.model.User;
 import com.blue.harvest.assessment.service.UserService;
 
 
@@ -21,28 +21,28 @@ public class CustomerEntityManagerCommandLineRunner implements CommandLineRunner
 
 	 public void run(String...args) {
 
-		 Customer ehab = new Customer();
+		 User ehab = new User();
 		 ehab.setName("Ehab");
 		 ehab.setSurname("Ehab Surname"); 
 		 ehab.setBalance(0); 
 		 userService.saveUser(ehab);
 
 		 
-		 Customer luran = new Customer();
+		 User luran = new User();
 		 luran.setName("Luran");
 		 luran.setBalance(0); 
 		 luran.setSurname("Luran Surname"); 
 		 userService.saveUser(luran);
 //		 
 //		 
-		 Customer blue = new Customer();
+		 User blue = new User();
 		 blue.setName("Blue");
 		 blue.setBalance(0); 
 		 blue.setSurname("Blue Surname"); 
 		 userService.saveUser(blue);
 		 
 		 
-		 Customer harvest = new Customer();
+		 User harvest = new User();
 		 harvest.setName("Harvest");
 		 harvest.setSurname("Harvest Surname"); 
 		 harvest.setBalance(0); 
@@ -59,7 +59,7 @@ public class CustomerEntityManagerCommandLineRunner implements CommandLineRunner
 
 	  log.info("-------------------------------");
 
-	  for (Customer user: userService.findAllUsers()) {
+	  for (User user: userService.findAllUsers()) {
 
 	   log.info(user.toString());
 
