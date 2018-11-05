@@ -37,7 +37,7 @@ public class TransactionServiceTest {
 	public void checkCustomerBalance_AfterTransaction() {
 
 		AccountDTO account = new AccountDTO();
-		account.setCustomerID(2);
+		account.setCustomerID(3);
 		Account account1 =	accountService.saveAccount(account);
 		
 		Transaction transaction= new Transaction();
